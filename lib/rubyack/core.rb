@@ -8,10 +8,14 @@ module RubyAck
       end
 
       def search(params)
+        params = "\"#{params}\""
+
         if block_given?
           option_factory = Option::OptionFactory.new
+
           yield option_factory
-          params += option_factory.command
+
+          params += " " + option_factory.command
         end
 
         ResultsParser.parse @invoker.invoke(params)

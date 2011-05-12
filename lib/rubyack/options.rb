@@ -13,7 +13,7 @@ module RubyAck
       end
 
       def ignore_directories(dir)
-        @commands << IgnoreDirectories.new(dir)
+        @commands << IgnoreDirectories.new(dir).command
       end
 
       def command

@@ -17,8 +17,11 @@ describe RubyAck do
   end
 
   it "should be able to ignore directories" do
-    @rubyack.search("foo") do |s|
-      s.ignore_directories "spec/integration/fixtures, spec/integration, spec/fubar"
+    @rubyack.search("def non_existing_nowhere_else_method_name_than_here").should_not be_empty
+
+
+    @rubyack.search("def non_existing_nowhere_else_method_name_than_here") do |s|
+      s.ignore_directories "spec app"
     end.should be_empty
   end
 end

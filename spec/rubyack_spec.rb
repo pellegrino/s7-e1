@@ -4,15 +4,14 @@ include Core
 
 describe "Rubyack" do
 
-
   before { @text_searcher = TextSearcher.new }
-  it 'should invoke ack' do
-    @text_searcher.invoker.should_receive(:invoke).with("def foo")
+  it 'should invoke ack with the arguments in quotes' do
+    @text_searcher.invoker.should_receive(:invoke).with("\"def foo\"")
     @text_searcher.search("def foo")
   end
 
   it "should be to return the lines found" do
-    @text_searcher.invoker.stub!(:invoke).with("factory").and_return(["admission/robot/lib/factory.rb:3:  def initialize(map)\n"])
+    @text_searcher.invoker.stub!(:invoke).with("\"factory\"").and_return(["admission/robot/lib/factory.rb:3:  def initialize(map)\n"])
     lines = @text_searcher.search("factory")
     lines.size.should == 1
 
