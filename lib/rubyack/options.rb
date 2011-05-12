@@ -2,6 +2,10 @@ module RubyAck
   module Option
     class BaseOption
       attr_accessor :command
+
+      def to_s
+        @command
+      end
     end
 
     # Represents each available option
@@ -12,8 +16,12 @@ module RubyAck
         @commands = []
       end
 
-      def ignore_directories(dir)
-        @commands << IgnoreDirectories.new(dir).command
+      def ignore_directory(dir)
+        @commands << IgnoreDirectory.new(dir)
+      end
+
+      def non_recursive
+        @commands << NonRecursive.new
       end
 
       def command
@@ -23,4 +31,5 @@ module RubyAck
   end
 end
 
-require_relative 'options/ignore_directories'
+require_relative 'options/ignore_directory'
+require_relative 'options/non_recursive'
