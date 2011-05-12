@@ -1,6 +1,6 @@
 module RubyAck
   module Option
-    class IgnoreDirectory < BaseOption
+    class IgnoreDirectories < BaseOption
       def initialize(dir)
         @command = "--ignore-dirs #{dir}"
       end

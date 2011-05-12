@@ -12,8 +12,8 @@ module RubyAck
         @commands = []
       end
 
-      def ignore_directory(dir)
-        @commands << IgnoreDirectory.new(dir)
+      def ignore_directories(dir)
+        @commands << IgnoreDirectories.new(dir)
       end
 
       def command
@@ -23,4 +23,4 @@ module RubyAck
   end
 end
 
-require_relative 'options/ignore_directory'
+require_relative 'options/ignore_directories'
