@@ -9,8 +9,8 @@ describe RubyAck do
 
     line.number.should == 1
     line.column.should == 5
-    line.text == "foo"
-    line.file == "spec/integration/fixtures/foo.rb"
+    line.text.should == "def foo"
+    line.file.should == "spec/integration/fixtures/file.rb"
 
   end
 
