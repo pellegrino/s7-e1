@@ -8,8 +8,8 @@ module RubyAck
 
       def initialize(params)
         @number = params[:number]
-        @text = params[:text]
-        @file = params[:file]
+        @text   = params[:text]
+        @file   = params[:file]
         @column = params[:column]
       end
     end

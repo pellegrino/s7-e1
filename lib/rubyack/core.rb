@@ -1,3 +1,9 @@
+require_relative 'options'
+require_relative 'core/invoker'
+require_relative 'core/line'
+require_relative 'core/results_parser'
+
+
 module RubyAck
   module Core
     class TextSearcher
@@ -23,8 +29,3 @@ module RubyAck
     end
   end
 end
-
-require_relative 'options'
-require_relative 'core/invoker'
-require_relative 'core/line'
-require_relative 'core/results_parser'
