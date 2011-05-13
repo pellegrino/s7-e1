@@ -1,15 +1,7 @@
 module RubyAck
   module Option
-    class BaseOption
-      attr_accessor :command
-
-      def to_s
-        @command
-      end
-    end
-
-    # Represents each available option
-    class OptionFactory
+    # Builds the options string
+    class OptionParametersBuilder
       attr_accessor :commands
 
       def initialize
@@ -17,11 +9,15 @@ module RubyAck
       end
 
       def ignore_directory(dir)
-        @commands << IgnoreDirectory.new(dir)
+        @commands << "--ignore-dirs #{dir}"
       end
 
       def non_recursive
-        @commands << NonRecursive.new
+        @commands << "--no-recurse"
+      end
+
+      def follow_symlink
+        @commands << " --follow"
       end
 
       def command
@@ -31,5 +27,3 @@ module RubyAck
   end
 end
 
-require_relative 'options/ignore_directory'
-require_relative 'options/non_recursive'

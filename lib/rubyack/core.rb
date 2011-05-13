@@ -11,11 +11,11 @@ module RubyAck
         params = "\"#{params}\""
 
         if block_given?
-          option_factory = Option::OptionFactory.new
+          builder = Option::OptionParametersBuilder.new
 
-          yield option_factory
+          yield builder
 
-          params += " " + option_factory.command
+          params += " " + builder.command
         end
 
         ResultsParser.parse @invoker.invoke(params)
