@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-include Core
 
 describe "Rubyack" do
 
-  before { @text_searcher = TextSearcher.new }
+  before { @text_searcher = RubyAck::Core::TextSearcher.new }
+
   it 'should invoke ack with the arguments in quotes' do
     @text_searcher.invoker.should_receive(:invoke).with("\"def foo\"")
     @text_searcher.search("def foo")
@@ -19,7 +19,9 @@ describe "Rubyack" do
     first_result.number.should == 3
   end
 
-  describe ResultsParser do
+  describe "Parsing results" do
+    include Core
+
     it "should return an empty array if no result is found" do
       ResultsParser.parse([]).should be_empty
     end

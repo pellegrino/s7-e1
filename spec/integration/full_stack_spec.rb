@@ -1,10 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-include Core
-
 describe RubyAck do
 
-  before { @rubyack = TextSearcher.new }
+  before { @rubyack = RubyAck::Core::TextSearcher.new }
 
   it "should run ack"  do
     line = @rubyack.search("foo").first
