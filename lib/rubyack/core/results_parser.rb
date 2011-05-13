@@ -4,10 +4,7 @@ module RubyAck
       def self.parse(results)
         return [] if results.nil? or results.empty?
 
-        lines = []
-        results.each { |result| lines << self.parse_line(result) }
-
-        lines
+	results.inject [] { |lines, result | lines << self.parse_line(result) } 
       end
 
       private
