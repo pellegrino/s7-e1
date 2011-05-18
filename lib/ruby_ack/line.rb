@@ -12,5 +12,4 @@ module RubyAck
       @column = params[:column]
     end
   end
-
 end

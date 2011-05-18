@@ -1,10 +1,7 @@
 module RubyAck
   class Invoker
     def invoke(ack_string)
-      io = IO.popen("ack #{ack_string} --column")
-      result= io.readlines
-      io.close
-      result
+      IO.popen("ack #{ack_string} --column") { |io| io.readlines }
     end
   end
 end
