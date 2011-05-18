@@ -11,5 +11,6 @@ module RubyAck
       @file   = params[:file]
       @column = params[:column]
     end
+
   end
 end
