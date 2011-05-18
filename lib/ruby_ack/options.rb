@@ -16,7 +16,7 @@ module RubyAck
     end
 
     def follow_symlink
-      @commands << " --follow"
+      @commands << "--follow"
     end
 
     def command

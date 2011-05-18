@@ -11,4 +11,9 @@ describe RubyAck::OptionParametersBuilder do
   context "non recursive" do
     it { @builder.non_recursive.should == ["--no-recurse"] }
   end
+
+  context "following symlinks" do
+    it { @builder.follow_symlink.should == [ "--follow" ] }
+  end
+
 end
