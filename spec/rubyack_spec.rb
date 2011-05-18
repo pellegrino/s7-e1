@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Rubyack" do
 
-  before { @text_searcher = RubyAck::Core::TextSearcher.new }
+  before { @text_searcher = RubyAck::TextSearcher.new }
 
   it 'should invoke ack with the arguments in quotes' do
     @text_searcher.invoker.should_receive(:invoke).with("\"def foo\"")
@@ -20,7 +20,7 @@ describe "Rubyack" do
   end
 
   describe "Parsing results" do
-    include Core
+    include RubyAck
 
     it "should return an empty array if no result is found" do
       ResultsParser.parse([]).should be_empty

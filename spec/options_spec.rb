@@ -1,8 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require 'spec_helper'
 
-describe Option::OptionParametersBuilder do
 
-  before { @builder = RubyAck::Option::OptionParametersBuilder.new }
+describe RubyAck::OptionParametersBuilder do
+
+  before { @builder = RubyAck::OptionParametersBuilder.new }
 
   context "ignore directory" do
     it { @builder.ignore_directory('foo').should ==  ['--ignore-dirs foo'] }

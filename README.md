@@ -12,7 +12,7 @@ ack must be installed and available somewhere at the path.
 The following code finds any ocurrencies of "Jackpot" , ignoring the
 "specs" directory, following any symlinks
 
-        @searcher = RubyAck::Core::TextSearcher.new
+        @searcher = RubyAck::TextSearcher.new
         @searcher.search("Jackpot") do |s|
           s.ignore_directory "specs"
           s.follow_symlink

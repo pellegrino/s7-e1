@@ -2,16 +2,18 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe RubyAck do
 
-  before { @rubyack = RubyAck::Core::TextSearcher.new }
+  before { @rubyack = RubyAck::TextSearcher.new }
+
 
   it "should run ack"  do
-    line = @rubyack.search("foo").first
+    lines = @rubyack.search("defend against")
+    puts lines
+    lines.size.should == 3
 
-    line.number.should == 1
-    line.column.should == 5
-    line.text.should == "def foo"
-    line.file.should == "spec/integration/fixtures/file.rb"
-
+#     line.number.should == 1
+#     line.column.should == 5
+#     line.text.should == "def foo"
+#     line.file.should == "spec/integration/fixtures/file.rb"
   end
 
   it "should be able to search in a non recursive way" do
