@@ -20,14 +20,13 @@ describe "Rubyack" do
   end
 
   describe "Parsing results" do
-    include RubyAck
 
     it "should return an empty array if no result is found" do
-      ResultsParser.parse([]).should be_empty
+      RubyAck::ResultsParser.parse([]).should be_empty
     end
 
     it "should parse a result with 1 line" do
-      result_line = ResultsParser.parse(["admission/robot/lib/factory.rb:3:123:  def initialize(map)\n"]).first
+      result_line = RubyAck::ResultsParser.parse(["admission/robot/lib/factory.rb:3:123:  def initialize(map)\n"]).first
 
       result_line.number.should == 3
       result_line.column.should. == 123
@@ -36,7 +35,7 @@ describe "Rubyack" do
     end
 
     it "should be able to parse multiple results" do
-      results = ResultsParser.parse(["admission/robot/lib/factory.rb:3:  def initialize(map)\n",
+      results = RubyAck::ResultsParser.parse(["admission/robot/lib/factory.rb:3:  def initialize(map)\n",
                                      "admission/travel/rdoc/Flight.html:363:50:   <span class=\"ruby-keyword kw\">def</span> <span class=\"ruby-identifier\">total_duration</span>\n"])
       results.size.should ==  2
     end
