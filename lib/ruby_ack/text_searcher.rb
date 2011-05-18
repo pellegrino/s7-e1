@@ -1,8 +1,3 @@
-require_relative 'options'
-require_relative 'invoker'
-require_relative 'line'
-require_relative 'results_parser'
-
 module RubyAck
   class TextSearcher
     attr_accessor :invoker
